@@ -1,4 +1,4 @@
-package atores;
+package patas_amigas.atores;
 
 class Pessoa{
 

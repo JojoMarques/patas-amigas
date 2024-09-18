@@ -1,4 +1,4 @@
-package atores;
+package patas_amigas.atores;
 
 import java.util.ArrayList;
 

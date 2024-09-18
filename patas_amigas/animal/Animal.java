@@ -1,3 +1,4 @@
+package patas_amigas.animal;
 import java.util.ArrayList;
 
 public class Animal {
