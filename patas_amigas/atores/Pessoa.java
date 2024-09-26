@@ -1,6 +1,6 @@
 package patas_amigas.atores;
 
-class Pessoa{
+public class Pessoa{
 
     private static int idStatic = 1;
     private int id;
@@ -12,9 +12,13 @@ class Pessoa{
     private String endereco;
     private String telefone;
     private String genero;
+    private boolean ativa;
 
-    public Pessoa(int id, String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
-            String telefone, String genero) {
+  
+
+
+    public Pessoa(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
+            String telefone, String genero, boolean ativa) {
         this.id = idStatic++;
         this.nome = nome;
         this.cpf = cpf;
@@ -24,7 +28,12 @@ class Pessoa{
         this.endereco = endereco;
         this.telefone = telefone;
         this.genero = genero;
+        this.ativa = ativa;
     }
+
+    public Pessoa() {
+    }
+
 
     public int getId() {
         return id;
@@ -98,12 +107,22 @@ class Pessoa{
         this.genero = genero;
     }
 
+    public boolean isAtiva() {
+        return ativa;
+    }
+
+    public void setAtiva(boolean ativa) {
+        this.ativa = ativa;
+    }
+
     @Override
     public String toString() {
         return "Pessoa [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
                 + ", email=" + email + ", senha=" + senha + ", endereco=" + endereco + ", telefone=" + telefone
-                + ", genero=" + genero + "]";
+                + ", genero=" + genero + ", ativa=" + ativa + "]";
     }
+
+ 
 
 }
 

@@ -9,10 +9,14 @@ public class Funcionario extends Pessoa {
     private double salario;
     private String departamento;
 
-    public Funcionario(int id, String nome, String cpf, String dataNascimento, String email, String senha,
-            String endereco, String telefone, String genero, int idFunc, String dataContratacao, String cargo,
+    public Funcionario(){
+        
+    }
+  
+    public Funcionario(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
+            String telefone, String genero, boolean ativa, String dataContratacao, String cargo,
             double salario, String departamento) {
-        super(id, nome, cpf, dataNascimento, email, senha, endereco, telefone, genero);
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa);
         this.idFunc = idStatic++;
         this.dataContratacao = dataContratacao;
         this.cargo = cargo;
@@ -63,7 +67,15 @@ public class Funcionario extends Pessoa {
     @Override
     public String toString() {
         return "Funcionario [idFunc=" + idFunc + ", dataContratacao=" + dataContratacao + ", cargo=" + cargo
-                + ", salario=" + salario + ", departamento=" + departamento + "]";
+                + ", salario=" + salario + ", departamento=" + departamento + ", getIdFunc()=" + getIdFunc()
+                + ", getId()=" + getId() + ", getDataContratacao()=" + getDataContratacao() + ", getNome()=" + getNome()
+                + ", getCpf()=" + getCpf() + ", getCargo()=" + getCargo() + ", getDataNascimento()="
+                + getDataNascimento() + ", getSalario()=" + getSalario() + ", getEmail()=" + getEmail()
+                + ", getDepartamento()=" + getDepartamento() + ", getSenha()=" + getSenha() + ", getEndereco()="
+                + getEndereco() + ", getTelefone()=" + getTelefone() + ", getGenero()=" + getGenero() + ", isAtiva()="
+                + isAtiva() + "]";
     }
+
+    
 
 }

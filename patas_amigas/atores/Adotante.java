@@ -9,11 +9,13 @@ public class Adotante extends Pessoa {
     private String preferenciaAnimal;
     private ArrayList<String> historicoAdocoes_adotante = new ArrayList<>();
 
-    public Adotante(int id, String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
-            String telefone, String genero, int id2, String preferenciaAnimal,
-            ArrayList<String> historicoAdocoes_adotante) {
-        super(id, nome, cpf, dataNascimento, email, senha, endereco, telefone, genero);
-        id = id2;
+    public Adotante(){
+
+    }
+    
+    public Adotante(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,String telefone, String genero, boolean ativa, String preferenciaAnimal,ArrayList<String> historicoAdocoes_adotante) {
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa);
+        this.id = idStatic++;
         this.preferenciaAnimal = preferenciaAnimal;
         this.historicoAdocoes_adotante = historicoAdocoes_adotante;
     }
@@ -53,8 +55,15 @@ public class Adotante extends Pessoa {
     @Override
     public String toString() {
         return "Adotante [id=" + id + ", preferenciaAnimal=" + preferenciaAnimal + ", historicoAdocoes_adotante="
-                + historicoAdocoes_adotante + "]";
+                + historicoAdocoes_adotante + ", getId()=" + getId() + ", getNome()=" + getNome()
+                + ", getPreferenciaAnimal()=" + getPreferenciaAnimal() + ", getCpf()=" + getCpf()
+                + ", getDataNascimento()=" + getDataNascimento() + ", getHistoricoAdocoes_adotante()="
+                + getHistoricoAdocoes_adotante() + ", getEmail()=" + getEmail() + ", getSenha()=" + getSenha()
+                + ", getEndereco()=" + getEndereco() + ", getTelefone()=" + getTelefone() + ", getGenero()="
+                + getGenero() + ", isAtiva()=" + isAtiva() + "]";
     }
+
+    
 
     
 }

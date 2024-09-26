@@ -10,7 +10,7 @@ public class Animal {
     private String raca;
     private int idade;
     private String sexo;
-    private ArrayList<String> historicoMedico_animal = new ArrayList<>();
+    private ArrayList<String>historicoMedico_animal = new ArrayList<>();
     private String dataResgate;
     //private ?? foto;
     private String status;
