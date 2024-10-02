@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Adotante extends Pessoa {
     
     private static int idStatic = 1;
-    private int id;
+    private int idAdotante;
     private String preferenciaAnimal;
     private ArrayList<String> historicoAdocoes_adotante = new ArrayList<>();
 
@@ -18,10 +18,20 @@ public class Adotante extends Pessoa {
             int id, String preferenciaAnimal, ArrayList<String> historicoAdocoes_adotante) {
         super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
                 isTutor);
-        this.id = id;
+        this.idAdotante = idStatic++;
         this.preferenciaAnimal = preferenciaAnimal;
         this.historicoAdocoes_adotante = historicoAdocoes_adotante;
     }
+
+    public Adotante(Pessoa pessoa, String preferenciaAnimal, ArrayList<String> historicoAdocoes_adotante) {
+        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+        pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
+        pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
+        this.idAdotante = idStatic++;
+        this.preferenciaAnimal = preferenciaAnimal;
+        this.historicoAdocoes_adotante = historicoAdocoes_adotante;
+    }
+
 
 
     public static int getIdStatic() {
@@ -33,11 +43,11 @@ public class Adotante extends Pessoa {
     }
 
     public int getId() {
-        return id;
+        return idAdotante;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idAdotante = id;
     }
 
     public String getPreferenciaAnimal() {
@@ -60,7 +70,7 @@ public class Adotante extends Pessoa {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + id;
+        result = prime * result + idAdotante;
         result = prime * result + ((preferenciaAnimal == null) ? 0 : preferenciaAnimal.hashCode());
         result = prime * result + ((historicoAdocoes_adotante == null) ? 0 : historicoAdocoes_adotante.hashCode());
         return result;
@@ -68,7 +78,7 @@ public class Adotante extends Pessoa {
 
     @Override
     public String toString() {
-        return "Adotante " + "\ngetNome(): " + getNome() + id + "\npreferenciaAnimal: " + preferenciaAnimal 
+        return "Adotante " + idAdotante + "\ngetNome(): " + getNome() + "\npreferenciaAnimal: " + preferenciaAnimal 
             + "\nhistoricoAdocoes_adotante: " + historicoAdocoes_adotante;
     }
 

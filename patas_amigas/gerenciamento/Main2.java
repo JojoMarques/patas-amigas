@@ -191,7 +191,6 @@ public class Main2 {
             System.out.println("Digite sua preferência para adoção:");
             String preferencia = scan.nextLine();
 
-         //criando variável, pois ainda não temos a lista do histórico de adoções.
             ArrayList <String> historicoAdocoes_adotante = new ArrayList<>();
 
             Adotante adotante = new Adotante(nome,cpf, dataNasc,email, senha, endereco, tel, genero, true, preferencia, historicoAdocoes_adotante);

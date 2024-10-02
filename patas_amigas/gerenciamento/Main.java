@@ -10,6 +10,8 @@ import patas_amigas.atores.Tutor;
 
 public class Main {
     static Scanner scan = new Scanner(System.in);
+
+
     static ArrayList<Pessoa> pessoas = new ArrayList<>();
     static ArrayList<Funcionario> funcionarios = new ArrayList<>();
     static ArrayList<Tutor> tutores = new ArrayList<>();
@@ -31,8 +33,23 @@ public class Main {
 
             switch (op) {
                 case 1:
-                    pessoas.add(gerenciarPessoa());
+                    ArrayList<Pessoa> listaObjetosPessoa = gerenciarPessoa();
 
+                    Pessoa p = listaObjetosPessoa.get(0);
+
+                    pessoas.add(p);
+
+                    for (Pessoa el : listaObjetosPessoa) {
+                        if (el instanceof Funcionario) {
+                            funcionarios.add(el);
+
+                        } else if (el instanceof Adotante){
+                            adotante.add(el);
+
+                        } else if (el instanceof Tutor) {
+                            tutores.add(el);
+                        }
+                    }
                     break;
                 case 2:
                     gerarRelatorio(pessoas);
@@ -109,15 +126,22 @@ public class Main {
 
         if (roleF) {
             Funcionario func = gerenciarFuncionario(p);
+            objetosPessoa.add(func);
         }
 
         if (roleA) {
             Adotante adotante = gerenciarAdotante(p);
+            objetosPessoa.add(adotante);
         }
 
         if (roleT) {
             Tutor tutor = gerenciarTutor(p);
+            objetosPessoa.add(tutor);
+
         }
+
+        return objetosPessoa;
+
 
     }
 
@@ -140,11 +164,24 @@ public class Main {
     }
 
     public static Adotante gerenciarAdotante(Pessoa p) {
-        return null;
+        System.out.println("Digite sua preferência para adoção:");
+        String preferencia = scan.nextLine();
+
+        ArrayList <String> historicoAdocoes_adotante = new ArrayList<>();
+
+        Adotante adotante = new Adotante(p, preferencia, historicoAdocoes_adotante);
+        return adotante;
     }
 
     public static Tutor gerenciarTutor(Pessoa p) {
-        return null;
+        System.out.println("Digite a quantidade de animas mantidas sob custódia: ");
+        int numAnimais_custodia = scan.nextInt();
+
+        ArrayList <Object> historicoAdocoes_tutor = new ArrayList<>();
+
+        Tutor tutor = new Tutor(p, numAnimais_custodia, historicoAdocoes_tutor);
+        
+        return tutor;
     }
 
     public static void gerarRelatorio(List<Pessoa> pessoas) {

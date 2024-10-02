@@ -11,19 +11,24 @@ public class Tutor extends Pessoa{
     public Tutor() {
     }
 
-    
-
-
     public Tutor(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
             String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor,
             int idTutor, int numAnimais_custodia, ArrayList<Object> historicoAdocoes_tutor) {
         super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
                 isTutor);
-        this.idTutor = idTutor;
+        this.idTutor = idStatic++;
         this.numAnimais_custodia = numAnimais_custodia;
         this.historicoAdocoes_tutor = historicoAdocoes_tutor;
     }
 
+    public Tutor(Pessoa pessoa, int numAnimais_custodia, ArrayList<Object> historicoAdocoes_tutor) {
+        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+        pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
+        pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
+        this.idTutor = idStatic++;
+        this.numAnimais_custodia = numAnimais_custodia;
+        this.historicoAdocoes_tutor = historicoAdocoes_tutor;
+    }
 
     public static int getIdStatic() {
         return idStatic;
