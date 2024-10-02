@@ -1,5 +1,4 @@
 package patas_amigas.gerenciamento;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +29,7 @@ public class Main {
             System.out.println("2. Listar pessoas");
             System.out.println("3. Saída");
             int op = scan.nextInt();
+            scan.nextLine();
 
             switch (op) {
                 case 1:
@@ -41,18 +41,18 @@ public class Main {
 
                     for (Pessoa el : listaObjetosPessoa) {
                         if (el instanceof Funcionario) {
-                            funcionarios.add(el);
+                            funcionarios.add((Funcionario)el);
 
                         } else if (el instanceof Adotante){
-                            adotante.add(el);
+                            adotantes.add((Adotante)el);
 
                         } else if (el instanceof Tutor) {
-                            tutores.add(el);
+                            tutores.add((Tutor)el);
                         }
                     }
                     break;
                 case 2:
-                    gerarRelatorio(pessoas);
+                    gerarRelatorio(pessoas, funcionarios,adotantes,tutores);
                     break;
                 case 3:
                     condicao = false;
@@ -93,7 +93,7 @@ public class Main {
 
         System.out.println("Digite se você é funcionario [0 = não, 1 = sim]: ");
         int op = scan.nextInt();
-        while (op != 0 || op != 1) {
+        while (op != 0 && op != 1) {
             System.out.println("opção inválida! digite novamente.");
 
             System.out.println("Digite se você é funcionario [0 = não, 1 = sim]: ");
@@ -103,7 +103,7 @@ public class Main {
 
         System.out.println("Digite se você é adotante [0 = não, 1 = sim]: ");
         op = scan.nextInt();
-        while (op != 0 || op != 1) {
+        while (op != 0 && op != 1) {
             System.out.println("opção inválida! digite novamente.");
 
             System.out.println("Digite se você é adotante [0 = não, 1 = sim]: ");
@@ -113,7 +113,7 @@ public class Main {
 
         System.out.println("Digite se você é tutor [0 = não, 1 = sim]: ");
         op = scan.nextInt();
-        while (op != 0 || op != 1) {
+        while (op != 0 && op != 1) {
             System.out.println("opção inválida! digite novamente.");
 
             System.out.println("Digite se você é tutor [0 = não, 1 = sim]: ");
@@ -184,9 +184,39 @@ public class Main {
         return tutor;
     }
 
-    public static void gerarRelatorio(List<Pessoa> pessoas) {
-        for (Pessoa p : pessoas) {
-            System.out.println(p);
+    public static void gerarRelatorio(List<Pessoa> pessoas, List<Funcionario> funcionarios, List<Adotante> adotantes, List<Tutor> tutores) {
+        System.out.println("O que você deseja exibir?");
+        System.out.println("1.Todas as pessoas");
+        System.out.println("2.Todos os funcionários");
+        System.out.println("3.Todos os adotantes");
+        System.out.println("4.Todos os tutores");
+        int op = scan.nextInt(); 
+        
+        switch(op){
+            case 1: 
+                for (Pessoa p : pessoas) {
+                    System.out.println(p);
+                }
+                break;
+            case 2:
+                for (Funcionario f : funcionarios) {
+                    System.out.println(f);
+                }
+                break;
+            case 3: 
+                for (Adotante a : adotantes) {
+                    System.out.println(a);
+                }
+                break;
+            case 4: 
+                for (Tutor t : tutores) {
+                    System.out.println(t);
+                }
+                break;
+            default: 
+                System.out.println("Opção inválida!");
+                break;
         }
+       
     }
 }
