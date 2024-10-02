@@ -78,7 +78,7 @@ public class Adotante extends Pessoa {
 
     @Override
     public String toString() {
-        return "Adotante " + idAdotante + "\ngetNome(): " + getNome() + "\npreferenciaAnimal: " + preferenciaAnimal 
+        return "\nAdotante " + idAdotante + "\nNome: " + getNome() + "\npreferenciaAnimal: " + preferenciaAnimal 
             + "\nhistoricoAdocoes_adotante: " + historicoAdocoes_adotante;
     }
 

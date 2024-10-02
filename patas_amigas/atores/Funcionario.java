@@ -93,7 +93,7 @@ public class Funcionario extends Pessoa {
 
     @Override
     public String toString() {
-        return "Funcionario " + idFunc + "\nnome: "+ getNome() +"\ndataContratacao: " + dataContratacao + "\ncargo: " + cargo
+        return "\nFuncionario " + idFunc + "\nnome: "+ getNome() +"\ndataContratacao: " + dataContratacao + "\ncargo: " + cargo
                 + "\nsalario: " + salario + "\ndepartamento: " + departamento;
     }
 

@@ -80,7 +80,7 @@ public class Tutor extends Pessoa{
 
     @Override
     public String toString() {
-        return "Tutor " + idTutor + "\ngetNome(): " + getNome() + "\nnumAnimais_custodia: " + numAnimais_custodia
+        return "\nTutor " + idTutor + "\nNome: " + getNome() + "\nnumAnimais_custodia: " + numAnimais_custodia
                 + "\nhistoricoAdocoes_tutor: " + historicoAdocoes_tutor ;
     }
 

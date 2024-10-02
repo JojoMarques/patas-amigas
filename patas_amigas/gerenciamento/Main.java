@@ -62,6 +62,7 @@ public class Main {
                     System.out.println("Opção inválida! Tente novamente");
             }
         }
+        System.out.println("tchau tchau :)");
     }
 
     public static ArrayList<Pessoa> gerenciarPessoa() {
@@ -92,7 +93,7 @@ public class Main {
         System.out.println("Digite seu gênero: ");
         String genero = scan.nextLine();
 
-        System.out.println("Digite se você é funcionario [0 = não, 1 = sim]: ");
+        System.out.println("Digite se você é funcionario [0 = nao, 1 = sim]: ");
         int op = scan.nextInt();
         while (op != 0 && op != 1) {
             System.out.println("opção inválida! digite novamente.");
@@ -121,7 +122,8 @@ public class Main {
             op = scan.nextInt();
         }
         boolean roleT = (op == 0) ? false : true;
-
+        scan.nextLine();
+        
         Pessoa p = new Pessoa(nome, cpf, dataNasc, email, senha, endereco, tel, genero, true, roleF, roleA, roleT);
         objetosPessoa.add(p);
 
@@ -154,6 +156,7 @@ public class Main {
 
         System.out.println("Digite seu salário: ");
         double salario = scan.nextDouble();
+        scan.nextLine();
 
         System.out.println("Digite seu departamento: ");
         String departamento = scan.nextLine();
@@ -164,8 +167,6 @@ public class Main {
     }
 
     public static Adotante gerenciarAdotante(Pessoa p) {
-        scan.nextLine();
-
         System.out.println("Digite sua preferência para adoção:");
         String preferencia = scan.nextLine();
 
