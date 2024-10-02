@@ -11,11 +11,15 @@ public class Tutor extends Pessoa{
     public Tutor() {
     }
 
+    
+
+
     public Tutor(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
-            String telefone, String genero, boolean ativa, int numAnimais_custodia,
-            ArrayList<Object> historicoAdocoes_tutor) {
-        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa);
-        this.idTutor = idStatic++;
+            String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor,
+            int idTutor, int numAnimais_custodia, ArrayList<Object> historicoAdocoes_tutor) {
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
+                isTutor);
+        this.idTutor = idTutor;
         this.numAnimais_custodia = numAnimais_custodia;
         this.historicoAdocoes_tutor = historicoAdocoes_tutor;
     }
@@ -59,15 +63,23 @@ public class Tutor extends Pessoa{
     }
 
     @Override
-    public String toString() {
-        return "Tutor [idTutor=" + idTutor + ", numAnimais_custodia=" + numAnimais_custodia
-                + ", historicoAdocoes_tutor=" + historicoAdocoes_tutor + ", getId()=" + getId() + ", getIdTutor()="
-                + getIdTutor() + ", getNome()=" + getNome() + ", getNumAnimais_custodia()=" + getNumAnimais_custodia()
-                + ", getCpf()=" + getCpf() + ", getDataNascimento()=" + getDataNascimento() + ", getHistoricoAdocoes()="
-                + getHistoricoAdocoes() + ", getEmail()=" + getEmail() + ", getSenha()=" + getSenha()
-                + ", getEndereco()=" + getEndereco() + ", getTelefone()=" + getTelefone() + ", getGenero()="
-                + getGenero() + ", isAtiva()=" + isAtiva() + "]";
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + idTutor;
+        result = prime * result + numAnimais_custodia;
+        result = prime * result + ((historicoAdocoes_tutor == null) ? 0 : historicoAdocoes_tutor.hashCode());
+        return result;
     }
+
+
+    @Override
+    public String toString() {
+        return "Tutor " + idTutor + "\ngetNome(): " + getNome() + "\nnumAnimais_custodia: " + numAnimais_custodia
+                + "\nhistoricoAdocoes_tutor: " + historicoAdocoes_tutor ;
+    }
+
+    
 
     
     

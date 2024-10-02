@@ -12,11 +12,23 @@ public class Funcionario extends Pessoa {
     public Funcionario(){
         
     }
-  
+
     public Funcionario(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
-            String telefone, String genero, boolean ativa, String dataContratacao, String cargo,
-            double salario, String departamento) {
-        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa);
+            String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor,
+            int idFunc, String dataContratacao, String cargo, double salario, String departamento) {
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
+                isTutor);
+        this.idFunc = idStatic++;
+        this.dataContratacao = dataContratacao;
+        this.cargo = cargo;
+        this.salario = salario;
+        this.departamento = departamento;
+    }
+
+    public Funcionario(Pessoa pessoa,String dataContratacao, String cargo, double salario, String departamento) {
+        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+        pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
+        pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
         this.idFunc = idStatic++;
         this.dataContratacao = dataContratacao;
         this.cargo = cargo;
@@ -65,16 +77,27 @@ public class Funcionario extends Pessoa {
     }
 
     @Override
-    public String toString() {
-        return "Funcionario [idFunc=" + idFunc + ", dataContratacao=" + dataContratacao + ", cargo=" + cargo
-                + ", salario=" + salario + ", departamento=" + departamento + ", getIdFunc()=" + getIdFunc()
-                + ", getId()=" + getId() + ", getDataContratacao()=" + getDataContratacao() + ", getNome()=" + getNome()
-                + ", getCpf()=" + getCpf() + ", getCargo()=" + getCargo() + ", getDataNascimento()="
-                + getDataNascimento() + ", getSalario()=" + getSalario() + ", getEmail()=" + getEmail()
-                + ", getDepartamento()=" + getDepartamento() + ", getSenha()=" + getSenha() + ", getEndereco()="
-                + getEndereco() + ", getTelefone()=" + getTelefone() + ", getGenero()=" + getGenero() + ", isAtiva()="
-                + isAtiva() + "]";
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + idFunc;
+        result = prime * result + ((dataContratacao == null) ? 0 : dataContratacao.hashCode());
+        result = prime * result + ((cargo == null) ? 0 : cargo.hashCode());
+        long temp;
+        temp = Double.doubleToLongBits(salario);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        result = prime * result + ((departamento == null) ? 0 : departamento.hashCode());
+        return result;
     }
+
+
+    @Override
+    public String toString() {
+        return "Funcionario " + idFunc + "\nnome: "+ getNome() +"\ndataContratacao: " + dataContratacao + "\ncargo: " + cargo
+                + "\nsalario: " + salario + "\ndepartamento: " + departamento;
+    }
+
+    
 
     
 

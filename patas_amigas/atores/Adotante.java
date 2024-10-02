@@ -13,12 +13,16 @@ public class Adotante extends Pessoa {
 
     }
     
-    public Adotante(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,String telefone, String genero, boolean ativa, String preferenciaAnimal,ArrayList<String> historicoAdocoes_adotante) {
-        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa);
-        this.id = idStatic++;
+    public Adotante(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
+            String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor,
+            int id, String preferenciaAnimal, ArrayList<String> historicoAdocoes_adotante) {
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
+                isTutor);
+        this.id = id;
         this.preferenciaAnimal = preferenciaAnimal;
         this.historicoAdocoes_adotante = historicoAdocoes_adotante;
     }
+
 
     public static int getIdStatic() {
         return idStatic;
@@ -53,17 +57,25 @@ public class Adotante extends Pessoa {
     }
 
     @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        result = prime * result + ((preferenciaAnimal == null) ? 0 : preferenciaAnimal.hashCode());
+        result = prime * result + ((historicoAdocoes_adotante == null) ? 0 : historicoAdocoes_adotante.hashCode());
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "Adotante [id=" + id + ", preferenciaAnimal=" + preferenciaAnimal + ", historicoAdocoes_adotante="
-                + historicoAdocoes_adotante + ", getId()=" + getId() + ", getNome()=" + getNome()
-                + ", getPreferenciaAnimal()=" + getPreferenciaAnimal() + ", getCpf()=" + getCpf()
-                + ", getDataNascimento()=" + getDataNascimento() + ", getHistoricoAdocoes_adotante()="
-                + getHistoricoAdocoes_adotante() + ", getEmail()=" + getEmail() + ", getSenha()=" + getSenha()
-                + ", getEndereco()=" + getEndereco() + ", getTelefone()=" + getTelefone() + ", getGenero()="
-                + getGenero() + ", isAtiva()=" + isAtiva() + "]";
+        return "Adotante " + "\ngetNome(): " + getNome() + id + "\npreferenciaAnimal: " + preferenciaAnimal 
+            + "\nhistoricoAdocoes_adotante: " + historicoAdocoes_adotante;
     }
 
     
+    //tem que criar campo hash para senha 
+    //histórico da adoção --> na tabela 
+    //busca e navegação --> filtragem pelo menos por dois requisitos  
 
     
 }
