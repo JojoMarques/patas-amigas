@@ -36,6 +36,23 @@ public class Pessoa{
         this.isTutor = isTutor;
     }
 
+    public Pessoa(int id, String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
+            String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.email = email;
+        this.senha = senha;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.genero = genero;
+        this.ativa = ativa;
+        this.isFuncionario = isFuncionario;
+        this.isAdotante = isAdotante;
+        this.isTutor = isTutor;
+    }
+
     public Pessoa() {
     }
 

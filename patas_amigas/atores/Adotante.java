@@ -24,7 +24,7 @@ public class Adotante extends Pessoa {
     }
 
     public Adotante(Pessoa pessoa, String preferenciaAnimal, ArrayList<String> historicoAdocoes_adotante) {
-        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+        super(pessoa.getId(), pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
         pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
         pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
         this.idAdotante = idStatic++;

@@ -25,8 +25,8 @@ public class Funcionario extends Pessoa {
         this.departamento = departamento;
     }
 
-    public Funcionario(Pessoa pessoa,String dataContratacao, String cargo, double salario, String departamento) {
-        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+    public Funcionario(Pessoa pessoa, String dataContratacao, String cargo, double salario, String departamento) {
+        super(pessoa.getId() ,pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
         pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
         pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
         this.idFunc = idStatic++;

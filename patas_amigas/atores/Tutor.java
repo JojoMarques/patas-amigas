@@ -22,7 +22,7 @@ public class Tutor extends Pessoa{
     }
 
     public Tutor(Pessoa pessoa, int numAnimais_custodia, ArrayList<Object> historicoAdocoes_tutor) {
-        super(pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
+        super(pessoa.getId(), pessoa.getNome(), pessoa.getCpf(), pessoa.getDataNascimento(), pessoa.getEmail(), pessoa.getSenha(), 
         pessoa.getEndereco(), pessoa.getTelefone(), pessoa.getGenero(), pessoa.isAtiva(), 
         pessoa.isFuncionario(), pessoa.isAdotante(),pessoa.isTutor());
         this.idTutor = idStatic++;

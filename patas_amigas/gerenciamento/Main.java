@@ -34,7 +34,7 @@ public class Main {
 
             switch (op) {
                 case 1:
-                    ArrayList<Pessoa> listaObjetosPessoa = gerenciarPessoa();
+                ArrayList<Pessoa> listaObjetosPessoa = gerenciarPessoa();
 
                     Pessoa p = listaObjetosPessoa.get(0);
 
@@ -98,7 +98,7 @@ public class Main {
         while (op != 0 && op != 1) {
             System.out.println("opção inválida! digite novamente.");
 
-            System.out.println("Digite se você é funcionario [0 = não, 1 = sim]: ");
+            System.out.println("Digite se você é funcionario [0 = nao, 1 = sim]: ");
             op = scan.nextInt();
         }
         boolean roleF = (op == 0) ? false : true;
