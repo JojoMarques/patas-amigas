@@ -14,6 +14,8 @@ public class Animal {
     private String dataResgate;
     //private ?? foto;
     private String status;
+    // criar Tutor vazio para relacionar e assim saber se um animal está para adoção (se Tutor estiver vazio)
+    // depois da adoção, a gente vai passar o objeto Tutor pra cá
 
     public Animal(int idAnimal, String nome, String especie, String raca, int idade, String sexo,
             ArrayList<String> historicoMedico_animal, String dataResgate, String status) {

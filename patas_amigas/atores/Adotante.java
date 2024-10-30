@@ -16,8 +16,7 @@ public class Adotante extends Pessoa {
     public Adotante(String nome, String cpf, String dataNascimento, String email, String senha, String endereco,
             String telefone, String genero, boolean ativa, boolean isFuncionario, boolean isAdotante, boolean isTutor,
             int id, String preferenciaAnimal, ArrayList<String> historicoAdocoes_adotante) {
-        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,
-                isTutor);
+        super(nome, cpf, dataNascimento, email, senha, endereco, telefone, genero, ativa, isFuncionario, isAdotante,isTutor);
         this.idAdotante = idStatic++;
         this.preferenciaAnimal = preferenciaAnimal;
         this.historicoAdocoes_adotante = historicoAdocoes_adotante;
@@ -31,8 +30,6 @@ public class Adotante extends Pessoa {
         this.preferenciaAnimal = preferenciaAnimal;
         this.historicoAdocoes_adotante = historicoAdocoes_adotante;
     }
-
-
 
     public static int getIdStatic() {
         return idStatic;
