@@ -1,0 +1,2 @@
+javac patas_amigas/gerenciamento/Main.java
+java patas_amigas/gerenciamento/Main
