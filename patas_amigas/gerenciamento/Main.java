@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import patas_amigas.animal.Animal;
 import patas_amigas.atores.Adotante;
 import patas_amigas.atores.Funcionario;
 import patas_amigas.atores.Pessoa;
@@ -16,10 +17,10 @@ public class Main {
     static ArrayList<Funcionario> funcionarios = new ArrayList<>();
     static ArrayList<Tutor> tutores = new ArrayList<>();
     static ArrayList<Adotante> adotantes = new ArrayList<>();
+    static ArrayList<Animal> animais = new ArrayList<>();
 
     public static void main(String[] args) {
         // funcionario, tutor, adotante, animal.
-        // aí, pra cada um: criar o objeto
         System.out.println("Bem-vindo ao Patas Amigas ");
         boolean condicao = true;
 
@@ -28,13 +29,15 @@ public class Main {
             System.out.println("\nEscolha qual deseja gerenciar: ");
             System.out.println("1. Gerenciar pessoas");
             System.out.println("2. Listar pessoas");
-            System.out.println("3. Saída");
+            System.out.println("3. Gerenciar animais");
+            System.out.println("4. Listar animais");
+            System.out.println("5. Saída");
             int op = scan.nextInt();
             scan.nextLine();
 
             switch (op) {
                 case 1:
-                ArrayList<Pessoa> listaObjetosPessoa = gerenciarPessoa();
+                    ArrayList<Pessoa> listaObjetosPessoa = gerenciarPessoa();
 
                     Pessoa p = listaObjetosPessoa.get(0);
 
@@ -53,9 +56,16 @@ public class Main {
                     }
                     break;
                 case 2:
-                    gerarRelatorio(pessoas, funcionarios, adotantes, tutores);
+                    gerarRelatorioPessoas(pessoas, funcionarios, adotantes, tutores);
                     break;
                 case 3:
+                    Animal a = gerenciarAnimal();
+                    animais.add(a);
+                    break;
+                case 4:
+                    listarAnimais(animais);
+                    break;
+                case 5:
                     condicao = false;
                     break;
                 default:
@@ -63,6 +73,55 @@ public class Main {
             }
         }
         System.out.println("tchau tchau :)");
+    }
+
+    
+    public static Animal gerenciarAnimal() {
+        System.out.println("Digite o nome do animal: ");
+        String nome = scan.nextLine();
+
+        System.out.println("Digite a espécie do animal: ");
+        String especie = scan.nextLine();
+
+        System.out.println("Digite a raça do animal: ");
+        String raca = scan.nextLine();
+
+        System.out.println("Digite a idade do animal (em anos): ");
+        int idade = scan.nextInt();
+        scan.nextLine();
+
+        System.out.println("Digite o sexo do animal: ");
+        String sexo = scan.nextLine();
+
+        System.out.println("Digite o histórico médico do animal (separe os itens por vírgulas): ");
+        String historicoMedico = scan.nextLine();
+        ArrayList<String> historicoMedicoAnimal = new ArrayList<>();
+        if (!historicoMedico.isBlank()) {
+            String[] historico = historicoMedico.split(",");
+            for (String item : historico) {
+                historicoMedicoAnimal.add(item.trim());
+            }
+        }
+
+        System.out.println("Digite a data de resgate do animal: ");
+        String dataResgate = scan.nextLine();
+
+        System.out.println("Digite o status do animal (ex: disponível para adoção, adotado): ");
+        String status = scan.nextLine();
+
+        Animal animal = new Animal(Animal.getIdStatic(), nome, especie, raca, idade, sexo, historicoMedicoAnimal, dataResgate, status);
+        Animal.setIdStatic(Animal.getIdStatic() + 1);
+        return animal;
+    }
+
+    public static void listarAnimais(ArrayList<Animal> animais) {
+        if (animais.isEmpty()) {
+            System.out.println("Nenhum animal cadastrado.");
+        } else {
+            for (Animal animal : animais) {
+                System.out.println(animal);
+            }
+        }
     }
 
     public static ArrayList<Pessoa> gerenciarPessoa() {
@@ -187,7 +246,7 @@ public class Main {
         return tutor;
     }
 
-    public static void gerarRelatorio(List<Pessoa> pessoas, List<Funcionario> funcionarios, List<Adotante> adotantes,
+    public static void gerarRelatorioPessoas(List<Pessoa> pessoas, List<Funcionario> funcionarios, List<Adotante> adotantes,
             List<Tutor> tutores) {
         System.out.println("O que você deseja exibir?");
         System.out.println("1.Todas as pessoas");
